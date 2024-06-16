@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
+import HomePage from "./Pages/Home/HomePage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -8,9 +9,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <h1 className="text-2xl text-slate-500 font-bold font-green">
-        Shopping Cart Project
-      </h1>
+      <HomePage />
     </>
   );
 }
