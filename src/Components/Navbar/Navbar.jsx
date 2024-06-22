@@ -6,9 +6,12 @@ const Navbar = ({ shopItems, cartItems }) => {
   return (
     <nav className="bg-amber-700 p-4 w-full">
       <div className="mx-auto flex justify-between items-center">
-        <h1 className="text-3xl text-amber-400 font-semibold cursor-pointer hover:scale-105">
-          Sauce!<span className="text-4xl font-bold text-white">Shop</span>
-        </h1>
+        <Link to="/">
+          <h1 className="text-3xl text-amber-400 font-semibold cursor-pointer hover:scale-105">
+            Sauce!<span className="text-4xl font-bold text-white">Shop</span>
+          </h1>
+        </Link>
+
         <div className="links flex space-x-5">
           <Link
             to="/"
@@ -17,13 +20,13 @@ const Navbar = ({ shopItems, cartItems }) => {
             <FaHome size={28} />
           </Link>
           <Link
-            to="/"
+            to="/shop"
             className="text-white text-2xl hover:text-amber-400 font-bold"
           >
             <MdShop size={28} />
           </Link>
           <Link
-            to="/"
+            to="/cart"
             className="text-white text-2xl hover:text-amber-400 font-bold relative"
           >
             <FaShoppingCart size={28} />
