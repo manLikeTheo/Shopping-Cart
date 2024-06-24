@@ -1,10 +1,10 @@
 import React from "react";
 import ProductCard from "../../Components/ProductCard/ProductCard";
 import { useShopContext } from "../../Context/ShopContext";
-import { useOutletContext } from "react-router-dom";
 
 const Shop = () => {
   const { shopProducts } = useShopContext();
+
   return (
     <div className="flex flex-col items-center bg-slate-200 min-h-screen w-full">
       <h1 className="text-4xl font-bold my-4 shadow-xl">Products</h1>
