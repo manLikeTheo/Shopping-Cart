@@ -18,7 +18,7 @@ const ShopProvider = ({ children }) => {
           throw new Error(`HTTP Error: Status ${response.status}`);
         }
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         setShopProducts(data);
         setError(null);
       } catch (error) {
@@ -33,21 +33,21 @@ const ShopProvider = ({ children }) => {
   //Logic for adding items to cart
   const addToCart = (product, quantity) => {
     setCartContent((prevCartContent) => {
-      //Find the index of the product in the cart
-      const existingProductIndex = prevCartContent.findIndex(
+      //1. Find index of product in cart
+      const isProductInCart = prevCartContent.findIndex(
         (item) => item.id === product.id
       );
-
-      //If the product is already in the cart, update the quantity
-      if (existingProductIndex >= 0) {
+      //2. If the product is already in the cart, update the quantity
+      if (isProductInCart >= 0) {
         const updatedCart = [...prevCartContent];
-        updatedCart[existingProductIndex].quantity += quantity;
+        updatedCart[isProductInCart].quantity += quantity;
         return updatedCart;
       } else {
-        //id product is not in the cart, add it to cart
+        //Add product to cart
         return [...prevCartContent, { ...product, quantity }];
       }
     });
+    // console.log("Cart items on button click", cartContent);
   };
 
   //Remove products from cart

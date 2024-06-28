@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { useShopContext } from "../../Context/ShopContext";
+import { handleValueChange } from "../../Utils/Utils";
 
 const ProductCard = ({ product }) => {
-  //   const { cartContent, addToCart } = useShopContext();
+  const { addToCart } = useShopContext();
   const [quantity, setQuantity] = useState(1);
 
-  const handleQuantityChange = (e) => {
-    // console.log(e.target.value);
-    setQuantity(e.target.value);
-  };
+  // const handleQuantityChange = (e) => {
+  //   // console.log(e.target.value);
+  //   setQuantity(e.target.value);
+  // };
 
   const handleIncreaseQuantity = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
@@ -45,7 +46,7 @@ const ProductCard = ({ product }) => {
             type="number"
             value={quantity}
             min={0}
-            onChange={handleQuantityChange}
+            onChange={(e) => handleValueChange(e, setQuantity)}
           />
           <button onClick={handleIncreaseQuantity} className="text-xl">
             <FaPlus />

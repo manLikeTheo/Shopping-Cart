@@ -2,7 +2,14 @@ import React from "react";
 import { FaHome, FaShoppingCart } from "react-icons/fa";
 import { MdShop } from "react-icons/md";
 import { Link } from "react-router-dom";
-const Navbar = ({ shopItems, cartItems }) => {
+import { useShopContext } from "../../Context/ShopContext";
+const Navbar = () => {
+  const { cartContent } = useShopContext();
+  let totalCartItems = 0;
+  cartContent.forEach((item) => {
+    totalCartItems += item.quantity;
+    // console.log(totalCartItems);
+  });
   return (
     <nav className="bg-amber-700 p-4 w-full">
       <div className="mx-auto flex justify-between items-center">
@@ -30,7 +37,9 @@ const Navbar = ({ shopItems, cartItems }) => {
             className="text-white text-2xl hover:text-amber-400 font-bold relative"
           >
             <FaShoppingCart size={28} />
-            <p className="cart-quantity absolute top-5 left-3">{"0"}</p>
+            <p className="cart-quantity absolute top-5 left-3 text-amber-100 text-2xl">
+              {totalCartItems}
+            </p>
           </Link>
         </div>
       </div>
