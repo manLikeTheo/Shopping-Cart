@@ -3,21 +3,25 @@ import CheckoutCard from "../../Components/CheckoutCard/CheckoutCard";
 import { useShopContext } from "../../Context/ShopContext";
 
 const ShoppingCart = () => {
-  const { cartContent, setCartContent } = useShopContext();
+  const { cartContent } = useShopContext();
 
   // let newCartContent = [...cartContent];
   // setCartContent(newCartContent);
   let totalCartQuantityAmount = 0;
   cartContent.forEach((item) => {
-    totalCartQuantityAmount += item.quantity * item.price;
-    console.log("Total before VAT", totalCartQuantityAmount);
+    parseFloat(
+      (totalCartQuantityAmount += item.quantity * item.price.toFixed(2))
+    );
+    // console.log("Total before VAT", totalCartQuantityAmount);
   });
 
-  let vat = Math.round(totalCartQuantityAmount * 0.075); //7.5%
-  console.log("VAT", vat);
+  let vat = parseFloat((totalCartQuantityAmount * 0.075).toFixed(2)); //7.5%
+  // console.log("VAT", vat);
 
-  let finalTotalCartAmount = Math.round(totalCartQuantityAmount + vat);
-  console.log("sum total", finalTotalCartAmount);
+  let finalTotalCartAmount = parseFloat(
+    (totalCartQuantityAmount + vat).toFixed(2)
+  );
+  // console.log("sum total", finalTotalCartAmount);
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-amber-100 to-slate-300 border-4 border-red-500 flex justify-around items-center gap-6">
@@ -47,7 +51,7 @@ const ShoppingCart = () => {
                 Subtotal: {cartContent.length} items
               </p>
               <span className="subtotal-price">
-                $ {totalCartQuantityAmount}
+                $ {totalCartQuantityAmount.toFixed(2)}
               </span>
             </div>
             <div className="vat flex justify-between p-2">

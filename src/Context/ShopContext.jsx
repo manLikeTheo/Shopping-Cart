@@ -4,7 +4,7 @@ const ShopContext = createContext();
 
 const ShopProvider = ({ children }) => {
   const [cartContent, setCartContent] = useState([]);
-  const [shopProducts, setShopProducts] = useState(null);
+  const [shopProducts, setShopProducts] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -18,7 +18,6 @@ const ShopProvider = ({ children }) => {
           throw new Error(`HTTP Error: Status ${response.status}`);
         }
         const data = await response.json();
-        // console.log(data);
         setShopProducts(data);
         setError(null);
       } catch (error) {
@@ -47,17 +46,24 @@ const ShopProvider = ({ children }) => {
         return [...prevCartContent, { ...product, quantity }];
       }
     });
-    // console.log("Cart items on button click", cartContent);
   };
 
   //Remove products from cart
   const removeFromCart = (productId) => {
-    console.log("delete product from cart");
+    setCartContent((prevCartContent) => {
+      return prevCartContent.filter((item) => item.id !== productId);
+    });
   };
 
   //Update product quantity in cart
   const updateCart = (productId, quantity) => {
-    console.log("Update Cart Content");
+    setCartContent((prevCartContent) => {
+      const updatedCart = prevCartContent.map((item) =>
+        //if product is found? update the quantity, else keep the product as is
+        item.id === productId ? { ...item, quantity } : item
+      );
+      return updatedCart;
+    });
   };
 
   if (loading)
