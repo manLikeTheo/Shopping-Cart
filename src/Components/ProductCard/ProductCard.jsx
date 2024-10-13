@@ -27,7 +27,7 @@ const ProductCard = ({ product }) => {
     }
   };
   return (
-    <div className="product-card flex flex-col gap-3 justify-between items-center w-50 h-50 p-4 border-2 border-black">
+    <div className="product-card flex flex-col gap-3 justify-between items-center w-50 h-50 p-2 border-2 border-gray-500 sm:m-4 sm:w-full hover:scale-95">
       <img
         src={product.image}
         alt="product-image"

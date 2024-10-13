@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import backgroundImage from "../../assets/nuno-alberto-bg.jpg";
 const HomePage = () => {
   return (
     <div
       className="h-screen bg-cover bg-center flex flex-col justify-center items-center"
-      style={{ backgroundImage: "url('src/assets/nuno-alberto-bg.jpg')" }}
+      style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="intro w-50 opacity-90 bg-transparent p-6 text-center flex flex-col justify-center items-center">
         <h1 className="text-5xl tracking-wider text-white font-bold">

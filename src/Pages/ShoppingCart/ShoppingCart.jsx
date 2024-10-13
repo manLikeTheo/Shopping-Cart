@@ -22,7 +22,7 @@ const ShoppingCart = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-amber-100 to-slate-300 lg:flex sm:block justify-around items-center gap-6">
-      <div className="shopping-cart w-3/4 bg-gradient-to-r from-slate-200 to-slate-400 shadow-2xl rounded-xl p-6 sm:p-10 sm:w-full">
+      <div className="shopping-cart mb-6 bg-gradient-to-r from-slate-200 to-slate-400 shadow-2xl rounded-xl p-6 sm:p-10 sm:w-full">
         <h1 className="title text-5xl font-bold text-center">Shopping Cart</h1>
         <div className="cart-items">
           {cartContent.length > 0 ? (
@@ -30,7 +30,9 @@ const ShoppingCart = () => {
               <CheckoutCard key={item.id} item={item} />
             ))
           ) : (
-            <p className="text-2xl font-semibold">Your Cart is empty</p>
+            <p className="text-3xl font-semibold text-red-600 text-center sm:p-4">
+              Your Cart is empty
+            </p>
           )}
         </div>
       </div>
