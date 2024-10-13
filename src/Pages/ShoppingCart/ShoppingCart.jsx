@@ -12,20 +12,17 @@ const ShoppingCart = () => {
     parseFloat(
       (totalCartQuantityAmount += item.quantity * item.price.toFixed(2))
     );
-    // console.log("Total before VAT", totalCartQuantityAmount);
   });
 
   let vat = parseFloat((totalCartQuantityAmount * 0.075).toFixed(2)); //7.5%
-  // console.log("VAT", vat);
 
   let finalTotalCartAmount = parseFloat(
     (totalCartQuantityAmount + vat).toFixed(2)
   );
-  // console.log("sum total", finalTotalCartAmount);
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-amber-100 to-slate-300 border-4 border-red-500 flex justify-around items-center gap-6">
-      <div className="shopping-cart bg-gradient-to-r from-slate-200 to-slate-400 shadow-2xl rounded-xl p-6">
+    <div className="border-4 border-red-500 min-h-screen bg-gradient-to-r from-amber-100 to-slate-300 flex sm:flex sm:flex-col justify-around items-center gap-6">
+      <div className="shopping-cart w-2/ bg-gradient-to-r from-slate-200 to-slate-400 shadow-2xl rounded-xl p-6">
         <h1 className="title text-5xl font-bold">Shopping Cart</h1>
         <div className="cart-items">
           {cartContent.length > 0 ? (
@@ -37,7 +34,7 @@ const ShoppingCart = () => {
           )}
         </div>
       </div>
-      <div className="order-summary flex flex-col bg-gradient-to-r from-slate-200 to-slate-400 p-3 rounded-md">
+      <div className="order-summary flex flex-col bg-gradient-to-r from-slate-200 to-slate-400 p-10  rounded-lg">
         <h1 className="text-5xl font-extrabold text-slate-900">
           Order Summary:{" "}
         </h1>
