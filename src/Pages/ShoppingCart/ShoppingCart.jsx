@@ -21,9 +21,9 @@ const ShoppingCart = () => {
   );
 
   return (
-    <div className="border-4 border-red-500 min-h-screen bg-gradient-to-r from-amber-100 to-slate-300 flex sm:flex sm:flex-col justify-around items-center gap-6">
-      <div className="shopping-cart w-2/ bg-gradient-to-r from-slate-200 to-slate-400 shadow-2xl rounded-xl p-6">
-        <h1 className="title text-5xl font-bold">Shopping Cart</h1>
+    <div className="min-h-screen bg-gradient-to-r from-amber-100 to-slate-300 lg:flex sm:block justify-around items-center gap-6">
+      <div className="shopping-cart w-3/4 bg-gradient-to-r from-slate-200 to-slate-400 shadow-2xl rounded-xl p-6 sm:p-10 sm:w-full">
+        <h1 className="title text-5xl font-bold text-center">Shopping Cart</h1>
         <div className="cart-items">
           {cartContent.length > 0 ? (
             cartContent.map((item) => (
@@ -34,8 +34,8 @@ const ShoppingCart = () => {
           )}
         </div>
       </div>
-      <div className="order-summary flex flex-col bg-gradient-to-r from-slate-200 to-slate-400 p-10  rounded-lg">
-        <h1 className="text-5xl font-extrabold text-slate-900">
+      <div className="flex flex-col bg-gradient-to-r from-slate-200 to-slate-400 p-10 rounded-lg sm:p-10 sm:mt-8 sm:w-full">
+        <h1 className="text-5xl font-extrabold text-slate-900 text-center py-4">
           Order Summary:{" "}
         </h1>
         <div className="total-orders flex flex-col gap-4 border-4">
