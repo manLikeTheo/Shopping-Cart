@@ -37,14 +37,18 @@ const HomePage = () => {
           {<FaGithub size={28} />}
         </Link>
         <p className="text-amber-500 text-lg flex gap-4 justify-center items-center">
-          Image credits{" "}
+          <span className="text-lg hidden text-amber-600 sm:text-lg sm:inline">
+            Image credits:
+          </span>
           <Link
             to="https://unsplash.com/photos/man-in-front-of-plush-toy-claw-machine-XOJoyZYTezo?like_photo=true"
             className="text-blue-700"
           >
             {<FaImage size={24} className="hover:scale-105" />}
           </Link>
-          : Nuno Alberto on Unsplash
+          <span className="text-amber-600 hidden md:inline lg:text-lg">
+            : Nuno Alberto on Unsplash
+          </span>
         </p>
       </footer>
     </div>
